@@ -1,6 +1,7 @@
 <template>
   <div class="p-8">
-    <Editor />
+    {{ html }}
+    <Editor v-model="html"/>
   </div>
 </template>
 
@@ -12,6 +13,11 @@ export default defineComponent({
   name: 'App',
   components: {
     Editor
-  }
+  },
+  data() {
+    return {
+      html: "",
+    }
+  },
 });
 </script>

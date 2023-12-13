@@ -2,17 +2,15 @@
     <div class="editor-component">
         <div class="border rounded">
             <div class="border-b p-2">
-                <Toolbar />
+                <Toolbar :height="height" />
             </div>
             <div
                 :style="`height: ${height};`"
                 ref="editable"
-                class="editable h-full focus-visible:outline-none p-2"
+                class="editable h-full focus-visible:outline-none p-2 overflow-x-hidden"
                 contenteditable="true"
                 @input="updateContent"
-            >
-                <p>Conteúdo inicial</p>
-            </div>
+            ></div>
         </div>
     </div>
 </template>
@@ -34,7 +32,7 @@ export default defineComponent({
     methods: {
         updateContent() {
             const element = this.$refs.editable as HTMLElement;
-            this.$emit("input", element);
+            this.$emit("update:modelValue", element.innerHTML);
         },
     },
 });
