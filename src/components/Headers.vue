@@ -57,7 +57,7 @@ export default defineComponent({
             
             if (!elmt.classList.contains("selected")) {
                 elmt.classList.add("selected");
-                this.$emit("selected", (index + 1));
+                this.$emit("selected", index);
             }
         },
         removeSelected(event: Event) {

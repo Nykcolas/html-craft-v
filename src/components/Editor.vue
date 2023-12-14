@@ -1,5 +1,5 @@
 <template>
-    <div class="editor-component">
+    <div class="html-craft-v">
         <div class="border rounded">
             <div class="border-b p-2">
                 <Toolbar :height="height" />
@@ -8,9 +8,11 @@
                 :style="`height: ${height};`"
                 ref="editable"
                 class="editable h-full focus-visible:outline-none p-2 overflow-x-hidden"
-                contenteditable="true"
+                contenteditable
                 @input="updateContent"
-            ></div>
+            >
+                <p>primeiro codigo</p>
+            </div>
         </div>
     </div>
 </template>

@@ -4,7 +4,7 @@
         <li ref="Heading" :class="`${openHeaders ? 'selected' : ''} border rounded btn cursor-pointer relative`">
             <a @click="openHeaders = !openHeaders" ref="Heading" v-html="IconHeading"></a>
             <transition mode="out-in" name="scale">
-                <Headers v-show="openHeaders" :height="height" @selected="selectItem" @close="openHeaders = false" />
+                <Headers v-show="openHeaders" :height="height" @selected="selectItemHeader" @close="openHeaders = false" />
             </transition>
         </li>
     </ul>
@@ -14,6 +14,7 @@
 import { defineComponent } from "vue";
 import { IconHeading } from "@codexteam/icons";
 import Headers from "./Headers.vue"
+import { selectItemHeader } from "../helpers/Fields";
 export default defineComponent({
     name: "Toolbar",
     components: {
@@ -49,8 +50,8 @@ export default defineComponent({
                 this.openHeaders = false;
             }
         },
-        selectItem(index: number) {
-            const elmt = this.$refs.editable as HTMLElement;
+        selectItemHeader(index: number) {
+            selectItemHeader(index);
             this.openHeaders = false;
         }
     },
